@@ -9,10 +9,16 @@
         android:id="@+id/tvHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="356dp"
-        android:layout_marginEnd="195dp"
-        android:text="HOME"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="217dp"
+        android:scaleX="0.89"
+        android:scaleY="0.89"
+        android:text="Welkom bij 'Mes Doigts de Fées'
+        - jouw creatieve hub voor unieke kunstwerken. Ontdek inspirerende posts, deel je eigen creaties en laat je verbeelding de vrije loop. Laat je betoveren door de magie van creativiteit!"
+        app:layout_constraintBottom_toTopOf="@+id/btnLesson"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button

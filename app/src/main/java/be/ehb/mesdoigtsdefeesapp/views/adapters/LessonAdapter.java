@@ -11,23 +11,44 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import be.ehb.mesdoigtsdefeesapp.R;
 import be.ehb.mesdoigtsdefeesapp.models.Lesson;
+import be.ehb.mesdoigtsdefeesapp.models.Post;
 
 public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonViewHolder>{
-    private ArrayList<Lesson> lessonList;
 
 
+    public class LessonViewHolder extends RecyclerView.ViewHolder{
+        TextView tvName, tvDescription, tvType;
 
-    public LessonAdapter() {
-        this.lessonList = new ArrayList<Lesson>();
+
+        public LessonViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvName = itemView.findViewById(R.id.textViewLessonName);
+            tvDescription = itemView.findViewById(R.id.textViewLessonDescription);
+            tvType = itemView.findViewById(R.id.textViewLessonType);
+
+        }
     }
 
 
 
+
+    private ArrayList<Lesson> items;
+
+    public LessonAdapter() {
+        this.items = new ArrayList<Lesson>();
+    }
+
+    public void addItems(List<Lesson> newItems){
+        this.items = new ArrayList<Lesson>();
+        this.items.addAll(newItems);
+    }
 
     @NonNull
     @Override
@@ -38,41 +59,21 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonView
 
     @Override
     public void onBindViewHolder(@NonNull LessonViewHolder holder, int position) {
+        Lesson currentItem = items.get(position);
+        holder.tvName.setText(currentItem.getName());
+        holder.tvDescription.setText(currentItem.getDescription());
+        holder.tvType.setText(currentItem.getSelectedType());
 
-        Lesson currentLesson = lessonList.get(position);
-        holder.tvName.setText(currentLesson.getName());
-        holder.tvType.setText(currentLesson.getSelectedType());
-        holder.tvDescription.setText(currentLesson.getDescription());
-    }
-
-    public void addItems(List<Lesson> newLessons){
-
-        this.lessonList = new ArrayList<Lesson>();
-        this.lessonList.addAll(newLessons);
 
     }
 
-
-
-
-
+    @Override
     public int getItemCount() {
-        return lessonList.size();
-    }
-    public static class LessonViewHolder extends RecyclerView.ViewHolder{
-
-        TextView tvName, tvType, tvDescription;
-        ImageView ivBooks;
-
-        public LessonViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvName = itemView.findViewById(R.id.textViewLessonName);
-            tvType = itemView.findViewById(R.id.textViewLessonType);
-            tvDescription = itemView.findViewById(R.id.textViewLessonDescription);
-            ivBooks = itemView.findViewById(R.id.imageViewBooks);
-
-
-        }
+        return items.size();
     }
 
+    public void setFilterList(ArrayList<Lesson> filterList){
+        items = filterList;
+        notifyDataSetChanged();
+    }
 }

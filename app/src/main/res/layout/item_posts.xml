@@ -23,36 +23,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="212dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="100dp"
-        tools:text="Title"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="100dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
 
-    <TextView
-        android:id="@+id/tvContent"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        tools:text="Content"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="100dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_image"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="Content" />
 
-    <TextView
-        android:id="@+id/tvSize"
-        android:layout_width="212dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        tools:text="Size"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="100dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title_image"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent"
+            tools:text="Size" />
 
 
         <View
@@ -62,5 +68,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_image"
             android:background="@color/underline"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:text="details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvContent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:srcCompat="@drawable/baseline_apps_24"
+            tools:onClick="navigateToDetails"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -35,14 +35,12 @@ public class NewLessonFragment extends Fragment {
     }
 
     public NewLessonFragment() {
-        // Required empty public constructor
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_new_lesson, container, false);
     }
 
@@ -57,11 +55,12 @@ public class NewLessonFragment extends Fragment {
         button = view.findViewById(R.id.buttonCreateLesson);
         spinner = view.findViewById(R.id.spinnerType);
 
+        //Ik maak een adapter aan voor de spinner. Dit helpt om de data van de spinner te krijgen.
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(), R.array.lesson_types, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-// In de click listener van je button
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

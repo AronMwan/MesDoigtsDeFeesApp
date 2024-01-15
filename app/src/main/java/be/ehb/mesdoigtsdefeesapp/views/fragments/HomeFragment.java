@@ -18,7 +18,6 @@ public class HomeFragment extends Fragment {
 
 
     public HomeFragment() {
-        // Required empty public constructor
     }
 
     public static HomeFragment newInstance() {
@@ -39,7 +38,6 @@ public class HomeFragment extends Fragment {
 
         Button seePosts = view.findViewById(R.id.btnPosts);
         Button seeLessons = view.findViewById(R.id.btnLesson);
-        TextView tvHome = view.findViewById(R.id.tvHome);
 
         seePosts.setOnClickListener(v -> {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_postFragment);

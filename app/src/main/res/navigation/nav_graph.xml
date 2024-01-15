@@ -38,6 +38,10 @@
         <action
             android:id="@+id/action_postFragment_to_newPostFragment"
             app:destination="@id/newPostFragment" />
+
+        <action
+            android:id="@+id/action_postFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
         </fragment>
 
     <fragment
@@ -59,5 +63,11 @@
             android:id="@+id/action_newPostFragment_to_postFragment"
             app:destination="@id/postFragment" />
         </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="be.ehb.mesdoigtsdefeesapp.views.fragments.DetailsFragment"
+        android:label="DetailsFragment" >
+    </fragment>
 
 </navigation>

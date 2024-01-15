@@ -40,19 +40,17 @@ public class PostFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
 
-        // Set windowSoftInputMode to adjustPan
+        // Om de keyboard te laten verdwijnen als je op de searchView klikt
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         RecyclerView rvPosts = view.findViewById(R.id.rv_posts);
         SearchView searchView = view.findViewById(R.id.searchView);
 
-        // Set an OnFocusChangeListener to the SearchView
         searchView.setOnFocusChangeListener((v, hasFocus) -> {
+            // Om de searchView te verplaatsen wanneer de keyboard verschijnt
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) rvPosts.getLayoutParams();
 
-            // Adjust the top margin when the SearchView gains or loses focus
-            layoutParams.topMargin = hasFocus ? 60/* Set your desired top margin */ : 24
-            /* Set your default top margin */;
+            layoutParams.topMargin = hasFocus ? 60 : 24;
 
             rvPosts.setLayoutParams(layoutParams);
         });
@@ -66,9 +64,11 @@ public class PostFragment extends Fragment {
 
         postList = new ArrayList<>();
 
+
+
         RecyclerView rvPosts = view.findViewById(R.id.rv_posts);
 
-        adapter = new PostAdapter();
+        adapter = new PostAdapter(getContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
 
         rvPosts.setAdapter(adapter);
@@ -77,8 +77,8 @@ public class PostFragment extends Fragment {
         PostViewModel viewModel = new ViewModelProvider(getActivity()).get(PostViewModel.class);
 
         viewModel.getAllPosts().observe(getViewLifecycleOwner(), items -> {
-            postList.clear(); // Clear the previous data
-            postList.addAll(items); // Add the new data
+            postList.clear();
+            postList.addAll(items);
             adapter.addItems(items);
             adapter.notifyDataSetChanged();
         });
@@ -88,8 +88,11 @@ public class PostFragment extends Fragment {
             Navigation.findNavController(view).navigate(R.id.action_postFragment_to_newPostFragment);
         });
 
+
         SearchView sv = view.findViewById(R.id.searchView);
         sv.clearFocus();
+
+        // Om de searchView te laten werken (filteren)
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -104,6 +107,7 @@ public class PostFragment extends Fragment {
         });
     }
 
+    // Om de lijst te filteren
     private void filterList(String text) {
         ArrayList<Post> filteredList = new ArrayList<>();
         for (Post item : postList) {
@@ -119,3 +123,4 @@ public class PostFragment extends Fragment {
         }
     }
 }
+
