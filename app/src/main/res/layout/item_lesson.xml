@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageViewBooks"
+        android:layout_width="63dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="63dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@drawable/books"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewLessonName"
+        android:layout_width="119dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="58dp"
+        android:text="Lesson Name"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBooks"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewLessonType"
+        android:layout_width="119dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="6dp"
+        android:text="Lesson Type"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBooks"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLessonName" />
+
+    <TextView
+        android:id="@+id/textViewLessonDescription"
+        android:layout_width="125dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="51dp"
+        android:text="Lesson Description"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewLessonName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

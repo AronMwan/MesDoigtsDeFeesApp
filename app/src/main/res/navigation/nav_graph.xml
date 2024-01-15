@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="be.ehb.mesdoigtsdefeesapp.views.fragments.HomeFragment"
+        android:label="HomeFragment">
+
+        <action
+            android:id="@+id/action_homeFragment_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="be.ehb.mesdoigtsdefeesapp.views.fragments.LessonFragment"
+        android:label="LessonFragment" >
+
+        <action
+            android:id="@+id/action_lessonFragment_to_newLessonFragment"
+            app:destination="@id/newLessonFragment" />
+        </fragment>
+
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="be.ehb.mesdoigtsdefeesapp.views.fragments.PostFragment"
+        android:label="PostFragment" >
+
+        <action
+            android:id="@+id/action_postFragment_to_newPostFragment"
+            app:destination="@id/newPostFragment" />
+        </fragment>
+
+    <fragment
+        android:id="@+id/newLessonFragment"
+        android:name="be.ehb.mesdoigtsdefeesapp.views.fragments.NewLessonFragment"
+        android:label="NewLessonFragment" >
+
+        <action
+            android:id="@+id/action_newLessonFragment_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
+        </fragment>
+
+    <fragment
+        android:id="@+id/newPostFragment"
+        android:name="be.ehb.mesdoigtsdefeesapp.views.fragments.NewPostFragment"
+        android:label="NewPostFragment" >
+
+        <action
+            android:id="@+id/action_newPostFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+        </fragment>
+
+</navigation>

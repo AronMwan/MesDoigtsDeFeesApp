@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="lesson_types">
+        <item>Theorie</item>
+        <item>Praktijk</item>
+    </array>
+</resources>
